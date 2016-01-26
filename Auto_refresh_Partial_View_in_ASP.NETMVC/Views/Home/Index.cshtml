@@ -1,0 +1,17 @@
+﻿@model Auto_refresh_Partial_View_in_ASP.NETMVC.Models.UsersViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<div class="user-status">
+    <h1>
+        @Model.FullName
+    </h1>
+</div>
+@section Scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            setInterval(function () { $('.user-status').hide().load('/Home/GetRandomUser').fadeIn('slow'); }, 3000);
+        });
+    </script>
+}
